@@ -16,7 +16,7 @@
 .message.from {
     background-color: #E5E4E9;
     color: #363636;
-    margin-right: 25%;
+    /*margin-right: 25%;*/
 }
 
 .message.to+.message.to,
@@ -29,7 +29,7 @@
     font-size: 3rem;
 }
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
     .footer {
         padding-left: 54rem;
         padding-right: 54rem;
@@ -37,7 +37,7 @@
         position: absolute;
         bottom: 0;
     }
-}
+}*/
 
 @media (max-width: 767.98px) {
     .input-btns {
