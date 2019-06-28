@@ -40,7 +40,7 @@ export class ChatService {
   }
 
    send_user_input(data) {
-       return this.http.post('http://localhost:8000/ask', data);
+       return this.http.post('http://blaze-server.eu-gb.mybluemix.net/ask', data);
    }
 
 }
