@@ -1,15 +1,36 @@
 <div class="header">Blaze</div>
 <div class="footer">
     <div #scrollMe class="msg-scroll">
-        <ng-container *ngFor="let message of messages | async">
-            <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
+        <ng-container>
+            <!-- div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
                 {{ message.content }}
-            </div>
+            </div -->
+                        <div class="conversation">
+                            <div class="message" *ngFor = "let item of conversation">
+                                <div *ngIf = "item.sender == 'user'" style="text-align: right;">
+                                    {{item.message}}
+                                </div>  
+                                <div *ngIf = "item.sender != 'user'" style="text-align: left;">
+                                    <div *ngIf = "item.type === 'option'">
+                                        <span *ngFor = "let option of item.message">
+                                            <button (click)="select_option(option.value)" >{{option.label}}</button><br>
+                                        </span>
+                                    </div>
+                                    <div *ngIf = "item.type === 'text' || item.type === 'image'">
+                                        <div [innerHTML]="item.message"></div>
+                                    </div>
+                                </div>  
+                            </div>
+                            
+                        </div>
+
+
+
         </ng-container>
     </div>
     <div class="input-btns">
         <label for="nameField">Your Message</label>
-        <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
-        <button class="float-right" (click)="sendMessage()">Send</button>
+        <input [(ngModel)]="new_input" (keyup.enter)="send_input()" type="text">
+        <button class="float-right" (click)="send_input()">Send</button>
     </div>
 </div>
